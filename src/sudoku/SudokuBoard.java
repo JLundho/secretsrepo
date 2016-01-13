@@ -8,7 +8,7 @@ package sudoku;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Map.Entry;
-import util.MyLinkedHashMap;
+import util.SudokuBoardLinkedHashMap;
 
 /**
  *
@@ -29,13 +29,13 @@ public class SudokuBoard {
     public static final int ROWS_IN_SEGMENT = 3;
     
 
-    public MyLinkedHashMap<Cell, String> gameBoardMap;
+    public SudokuBoardLinkedHashMap<Cell, String> gameBoardMap;
     
     public int currentNumRows = 0;
     
     
     public SudokuBoard(){
-        gameBoardMap = new MyLinkedHashMap<>();
+        gameBoardMap = new SudokuBoardLinkedHashMap<>();
     }
 
     public void addRow(String row) {
@@ -76,7 +76,7 @@ public class SudokuBoard {
         return resultRow;
     }
     
-    public ArrayList<Cell> getRowSegment(int segmentNumber, MyLinkedHashMap<Cell,String> segmentMap){
+    public ArrayList<Cell> getRowSegment(int segmentNumber, SudokuBoardLinkedHashMap<Cell,String> segmentMap){
         ArrayList<Cell> resultSegment = new ArrayList<Cell>();
         
         for(int i = 0; i < SudokuBoard.CELLS_IN_SEGMENT;i++){
@@ -87,7 +87,7 @@ public class SudokuBoard {
         return resultSegment;
     }
     
-    public ArrayList<Cell> getColumnSegment(int segmentNumber, MyLinkedHashMap<Cell,String> segmentMap){
+    public ArrayList<Cell> getColumnSegment(int segmentNumber, SudokuBoardLinkedHashMap<Cell,String> segmentMap){
         ArrayList<Cell> resultSegment = new ArrayList<Cell>();
         
         int baseNumber = 9;
@@ -123,10 +123,9 @@ public class SudokuBoard {
     }
     
 
-    public MyLinkedHashMap<Cell,String> rotateCounterClockwise () {
-        MyLinkedHashMap<Cell,String> CCWmap = new MyLinkedHashMap<>();
-        
-        //FIXA TILL SENARE! - Stämmer kolumnen?
+    public SudokuBoardLinkedHashMap<Cell,String> rotateCounterClockwise () {
+        SudokuBoardLinkedHashMap<Cell,String> CCWmap = new SudokuBoardLinkedHashMap<>();
+
         int counter = 0;
         int baseNumber = 8;
         for (Cell cell : gameBoardMap.keySet()) {
@@ -147,8 +146,8 @@ public class SudokuBoard {
         return CCWmap;
     }
     
-    public MyLinkedHashMap<Cell,String> rotateClockWise () {
-        MyLinkedHashMap<Cell,String> CWmap = new MyLinkedHashMap<>();
+    public SudokuBoardLinkedHashMap<Cell,String> rotateClockWise () {
+        SudokuBoardLinkedHashMap<Cell,String> CWmap = new SudokuBoardLinkedHashMap<>();
         
         for(int i = 0; i < MAXNUMCOLUMNS;i++){
             ArrayList<Cell> resultSquare = getColumn(i);

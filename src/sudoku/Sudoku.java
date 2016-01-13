@@ -17,9 +17,6 @@ import static sudoku.SudokuBoard.COLUMNSIZE;
  */
 public class Sudoku {
 
-    /**
-     * @param args the command line arguments
-     */
     private Scanner sc;
     private int numTestCases;
     public Map<Cell, String> gameBoardMap;
@@ -31,7 +28,6 @@ public class Sudoku {
         sc = new Scanner(System.in);
         numTestCases = sc.nextInt();
 
-        //Verkligen använda? Fullösning för att fånga \n
         sc.nextLine();
 
         ArrayList<SudokuBoard> solvedInstances = new ArrayList<>();
@@ -71,7 +67,7 @@ public class Sudoku {
         }
 
         for (String response : responses) {
-            //System.out.println(response);
+            System.out.println(response);
         }
     }
 
@@ -81,14 +77,10 @@ public class Sudoku {
 
     private boolean PerformTests() {
         /*Checks if the puzzle has been rotated clockwise or counter clockwise */
-        
-        
-        
          if(compareClockwiseSudoku()){ return true; }
          if(compareCounterClockwiseSudoku()){ return true;}
         
          //Checks within a segment if a column/row has been swapped with another(or if it is in the same place as last week)
-        
          if(compareColumnSwapsInSegment()){ return true;}
          if(compareRowSwapsInSegment()){ return true;}
         
@@ -98,9 +90,7 @@ public class Sudoku {
         
          if(checkPermutations()){ return true;}
          return false;
-        
-        /*
-        
+
         if (compareClockwiseSudoku()) {
         }
         if (compareCounterClockwiseSudoku()) {
@@ -120,9 +110,9 @@ public class Sudoku {
 
         if (checkPermutations()) {
         }
-        return false;*/
+        return false;
 
-        /*
+
          if(compareClockwiseSudoku()){ System.out.println("Board has been rotated clockwise");}
          if(compareCounterClockwiseSudoku()){ System.out.println("Board has been rotated counterclockwise");}
         
@@ -136,7 +126,7 @@ public class Sudoku {
         
          if(checkPermutations()){ System.out.println("String has been permuted");}
          System.out.println("");
-         return false;*/
+         return false;
     }
 
     //A column-segment is considered a 3x9 segment where segment 0 is column 1-3, segment 1 is column 4-6, etc.
@@ -508,8 +498,6 @@ public class Sudoku {
                 if (numHits == size - 1 && numHits > 0 && size > 0) {
                     maxHits++;
                 }
-
-                    
             }
 
         }

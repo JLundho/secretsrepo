@@ -13,7 +13,7 @@ import java.util.Set;
  *
  * @author jonas
  */
-public class MyLinkedHashMap<K, V> extends LinkedHashMap<K, V>{
+public class SudokuBoardLinkedHashMap<K, V> extends LinkedHashMap<K, V>{
 
     public V getValue(int i)
     {
